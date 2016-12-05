@@ -39,3 +39,9 @@ buck-out/
 \.buckd/
 android/app/libs
 *.keystore
+
+# VSCode
+.vscode
+
+# React native
+typings
