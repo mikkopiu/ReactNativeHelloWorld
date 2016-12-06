@@ -7,33 +7,37 @@
 import React, { Component } from 'react';
 import {
     AppRegistry,
-    StyleSheet,
-    Text,
-    View
+    Navigator
 } from 'react-native';
 
-import HelloComponent from './components/HelloComponent';
-import Ticker from './components/Ticker';
+import HelloScene from './components/HelloScene';
 
 export default class ReactNativeHelloWorld extends Component {
     render() {
         return (
-        <View style={styles.container}>
-            <HelloComponent name="You" />
-            <HelloComponent name="Everyone" />
-            <Ticker />
-        </View>
+            <Navigator
+                initialRoute={{ title: 'You', index: 0 }}
+                renderScene={(route, navigator) => 
+                    <HelloScene
+                        title={route.title}
+                        onForward={() => {
+                            const nextInd = route.index + 1;
+                            navigator.push({
+                                title: Math.random() >= 0.5 ? 'Everyone' : 'You',
+                                index: nextInd
+                            });
+                        }}
+
+                        onBack={() => {
+                            if (route.index > 0) {
+                                navigator.pop();
+                            }
+                        }}
+                    />
+                }
+            />
         );
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#9900cc',
-    }
-});
 
 AppRegistry.registerComponent('ReactNativeHelloWorld', () => ReactNativeHelloWorld);
