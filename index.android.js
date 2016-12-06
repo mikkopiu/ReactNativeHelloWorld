@@ -11,7 +11,9 @@ import {
     Text,
     View
 } from 'react-native';
+
 import HelloComponent from './components/HelloComponent';
+import Ticker from './components/Ticker';
 
 export default class ReactNativeHelloWorld extends Component {
     render() {
@@ -19,6 +21,7 @@ export default class ReactNativeHelloWorld extends Component {
         <View style={styles.container}>
             <HelloComponent name="You" />
             <HelloComponent name="Everyone" />
+            <Ticker />
         </View>
         );
     }
