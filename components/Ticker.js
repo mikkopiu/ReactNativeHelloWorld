@@ -11,9 +11,7 @@ export default class Ticker extends Component {
             tick: 0
         };
 
-        this.interval = setInterval(() => {
-            this.setState({tick: this.state.tick + 1});
-        }, 1000);
+        this.interval = setInterval(() => this.incrementTick(), 1000);
     }
 
     render() {
@@ -25,7 +23,7 @@ export default class Ticker extends Component {
     }
 
     incrementTick() {
-        this.setState({tick: this.state.tick++});
+        this.setState({tick: this.state.tick + 1});
     }
 }
 
