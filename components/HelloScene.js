@@ -14,6 +14,7 @@ import {
 
 import HelloComponent from './HelloComponent';
 import Ticker from './Ticker';
+import TouchArea from './TouchArea';
 
 export default class ReactNativeHelloWorld extends Component {
     static get defaultProps() {
@@ -27,6 +28,8 @@ export default class ReactNativeHelloWorld extends Component {
             <View style={styles.container}>
                 <HelloComponent name={this.props.title} />
                 <Ticker />
+
+                <TouchArea />
 
                 <Button
                     onPress={this.props.onForward}
