@@ -14,6 +14,10 @@ export default class Ticker extends Component {
         this.interval = setInterval(() => this.incrementTick(), 1000);
     }
 
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
+
     render() {
         return (
             <Text style={styles.tickText}>
